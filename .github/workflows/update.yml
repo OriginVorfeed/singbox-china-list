@@ -1,0 +1,79 @@
+name: Update SingBox Rules
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每天凌晨自动运行
+  workflow_dispatch: # 支持手动触发
+
+# 显式赋予写入权限
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download and Convert
+        run: |
+          # 定义需要转换的文件列表
+          files=("accelerated-domains.china" "google.china" "apple.china")
+
+          for file in "${files[@]}"; do
+            # 下载原始文件
+            curl -sSL "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/$file.conf" -o "$file.conf"
+          done
+
+          # 下载官方的 Makefile
+          curl -sSL "https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/Makefile" -o "Makefile"
+
+          # 提取纯域名
+          make raw
+
+          # 创建存放 srs 源码的临时目录
+          mkdir -p data
+
+          # 安装 sing-box
+          curl -fsSL https://sing-box.app/install.sh | sh -s -- --version 1.12.17
+
+          for file in "${files[@]}"; do
+            # 将文件名转换为符合标准的 geosite 标签名 (Tag)
+            tag_name="${file%.china}"
+
+            # 转换为 srs 源码
+            jq -R -s '
+              split("\n")
+              | map(select(length > 0))
+              | {
+                  version: 3,
+                  rules: [
+                    {
+                      domain_suffix: .
+                    }
+                  ]
+                }
+            ' "$file.raw.txt" > "data/$tag_name.json"
+
+            # 编译生成 .srs 文件
+            sing-box rule-set compile --output "geosite-$tag_name.srs" "data/$tag_name.json"
+
+            # 清理中间文件
+            rm "$file.conf"
+            rm "$file.raw.txt"
+          done
+
+          # 清理临时文件
+          rm -f Makefile
+
+          # 额外添加 geoip-cn.srs，方便 v2rayN 配置 sing-box ruleset 文件来源
+          curl -sSL "https://raw.githubusercontent.com/2dust/sing-box-rules/rule-set-geoip/geoip-cn.srs" -o "geoip-cn.srs"
+
+      - name: Git push
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Action"
+          git add *.srs data/
+          git commit -m "Update rules: $(date)" || exit 0
+          git push
