@@ -67,6 +67,9 @@ jobs:
           # 清理临时文件
           rm -f Makefile
 
+          # 单独生成 geosite-private.srs
+          sing-box rule-set compile --output "geosite-private.srs" "data/private.json"
+
           # 额外添加 geoip-cn.srs，方便 v2rayN 配置 sing-box ruleset 文件来源
           curl -sSL "https://raw.githubusercontent.com/2dust/sing-box-rules/rule-set-geoip/geoip-cn.srs" -o "geoip-cn.srs"
 
