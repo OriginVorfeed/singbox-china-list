@@ -58,44 +58,45 @@
 
 - `帮助 -> 检查更新`，勾选 GeoFiles，点击 `检查更新`。
 - 文件名已匹配预置的 `绕过大陆(Whitelist)` 规则集，可以直接 `设为活动规则`。
-- 单独配置请参考 [sing-box 官方文档](https://sing-box.sagernet.org/zh/configuration/route/)，合并以下内容：
 
-  ```json
-  {
-    "route": {
-      "rules": [
-        {
-          "outbound": "direct",
-          "rule_set": [
-            "geosite-private",
-            "geosite-cn",
-            "geosite-apple"
-          ]
-        }
-      ],
-      "rule_set": [
-        {
-          "tag": "geosite-private",
-          "type": "local",
-          "format": "binary",
-          "path": "C:\\srss\\geosite-private.srs"
-        },
-        {
-          "tag": "geosite-cn",
-          "type": "local",
-          "format": "binary",
-          "path": "C:\\srss\\geosite-cn.srs"
-        },
-        {
-          "tag": "geosite-apple",
-          "type": "local",
-          "format": "binary",
-          "path": "C:\\srss\\geosite-apple.srs"
-        }
-      ]
-    }
+> 单独配置请参考 [sing-box 官方文档](https://sing-box.sagernet.org/zh/configuration/route/)，合并以下内容：
+
+```json
+{
+  "route": {
+    "rules": [
+      {
+        "outbound": "direct",
+        "rule_set": [
+          "geosite-private",
+          "geosite-cn",
+          "geosite-apple"
+        ]
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "geosite-private",
+        "type": "local",
+        "format": "binary",
+        "path": "C:\\srss\\geosite-private.srs"
+      },
+      {
+        "tag": "geosite-cn",
+        "type": "local",
+        "format": "binary",
+        "path": "C:\\srss\\geosite-cn.srs"
+      },
+      {
+        "tag": "geosite-apple",
+        "type": "local",
+        "format": "binary",
+        "path": "C:\\srss\\geosite-apple.srs"
+      }
+    ]
   }
-  ```
+}
+```
 
 ## 验证配置
 
