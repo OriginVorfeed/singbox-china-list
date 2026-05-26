@@ -72,6 +72,12 @@
           "geosite-cn",
           "geosite-apple"
         ]
+      },
+      {
+        "outbound": "direct",
+        "rule_set": [
+          "geoip-cn"
+        ]
       }
     ],
     "rule_set": [
@@ -79,19 +85,25 @@
         "tag": "geosite-private",
         "type": "local",
         "format": "binary",
-        "path": "C:\\srss\\geosite-private.srs"
+        "path": "C:\\Programs\\v2rayN\\bin\\srss\\geosite-private.srs"
       },
       {
         "tag": "geosite-cn",
         "type": "local",
         "format": "binary",
-        "path": "C:\\srss\\geosite-cn.srs"
+        "path": "C:\\Programs\\v2rayN\\bin\\srss\\geosite-cn.srs"
       },
       {
         "tag": "geosite-apple",
         "type": "local",
         "format": "binary",
-        "path": "C:\\srss\\geosite-apple.srs"
+        "path": "C:\\Programs\\v2rayN\\bin\\srss\\geosite-apple.srs"
+      },
+      {
+        "tag": "geoip-cn",
+        "type": "local",
+        "format": "binary",
+        "path": "C:\\Programs\\v2rayN\\bin\\srss\\geoip-cn.srs"
       }
     ]
   }
