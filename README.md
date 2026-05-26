@@ -47,6 +47,7 @@
 ## 使用方法
 
 - 推荐配合 [v2rayN](https://github.com/2dust/v2rayn) 使用，在 `设置 -> 参数设置 -> v2rayN 设置  -> sing-box ruleset 文件来源` 里，填写：
+
   ```
   https://raw.githubusercontent.com/OriginVorfeed/singbox-china-list/refs/heads/main/{1}.srs
   ```
