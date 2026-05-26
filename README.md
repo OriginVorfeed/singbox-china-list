@@ -46,10 +46,14 @@
 
 ## 使用方法
 
-- 推荐配合 [v2rayN](https://github.com/2dust/v2rayn) 使用，在 `设置 -> 参数设置 -> v2rayN 设置  -> sing-box ruleset 文件来源` 里，填写：
+- 推荐配合 [v2rayN](https://github.com/2dust/v2rayn) 使用，填写 `设置 -> 参数设置 -> v2rayN 设置  -> sing-box ruleset 文件来源`，任选其一：
 
   ```
-  https://raw.githubusercontent.com/OriginVorfeed/singbox-china-list/refs/heads/main/{1}.srs
+  # 代理
+  https://raw.githubusercontent.com/OriginVorfeed/singbox-china-list/master/{1}.srs
+
+  # 直连
+  https://cdn.jsdelivr.net/gh/OriginVorfeed/singbox-china-list@master/{1}.srs
   ```
 
 - `帮助 -> 检查更新`，勾选 GeoFiles，点击 `检查更新`。
