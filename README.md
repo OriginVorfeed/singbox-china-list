@@ -85,25 +85,25 @@
         "tag": "geosite-private",
         "type": "local",
         "format": "binary",
-        "path": "C:\\Programs\\v2rayN\\bin\\srss\\geosite-private.srs"
+        "path": "C:\\srss\\geosite-private.srs"
       },
       {
         "tag": "geosite-cn",
         "type": "local",
         "format": "binary",
-        "path": "C:\\Programs\\v2rayN\\bin\\srss\\geosite-cn.srs"
+        "path": "C:\\srss\\geosite-cn.srs"
       },
       {
         "tag": "geosite-apple",
         "type": "local",
         "format": "binary",
-        "path": "C:\\Programs\\v2rayN\\bin\\srss\\geosite-apple.srs"
+        "path": "C:\\srss\\geosite-apple.srs"
       },
       {
         "tag": "geoip-cn",
         "type": "local",
         "format": "binary",
-        "path": "C:\\Programs\\v2rayN\\bin\\srss\\geoip-cn.srs"
+        "path": "C:\\srss\\geoip-cn.srs"
       }
     ]
   }
