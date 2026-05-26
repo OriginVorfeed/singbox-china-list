@@ -50,10 +50,10 @@
 
   ```
   # 需要代理
-  https://raw.githubusercontent.com/OriginVorfeed/singbox-china-list/master/{1}.srs
+  https://raw.githubusercontent.com/OriginVorfeed/singbox-china-list/refs/heads/main/{1}.srs
 
   # 可以直连，但最好别用。试了好几次，v2rayN 下载到的文件大小不对，但浏览器下载是好的，不知道什么原因。
-  https://cdn.jsdelivr.net/gh/OriginVorfeed/singbox-china-list@master/{1}.srs
+  https://cdn.jsdelivr.net/gh/OriginVorfeed/singbox-china-list@main/{1}.srs
   ```
 
 - `帮助 -> 检查更新`，勾选 GeoFiles，点击 `检查更新`。
