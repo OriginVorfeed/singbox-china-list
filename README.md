@@ -44,6 +44,64 @@
   - [https://raw.githubusercontent.com/OriginVorfeed/singbox-china-list/master/geosite-google.srs](https://raw.githubusercontent.com/OriginVorfeed/singbox-china-list/master/geosite-google.srs)
   - [https://cdn.jsdelivr.net/gh/OriginVorfeed/singbox-china-list@master/geosite-google.srs](https://cdn.jsdelivr.net/gh/OriginVorfeed/singbox-china-list@master/geosite-google.srs)
 
+## 使用方法
+
+- 推荐配合 [v2rayN](https://github.com/2dust/v2rayn) 使用，在 `设置 -> 参数设置 -> v2rayN 设置  -> sing-box ruleset 文件来源` 里，填写：
+  ```
+  https://raw.githubusercontent.com/OriginVorfeed/singbox-china-list/refs/heads/main/{1}.srs
+  ```
+- `帮助 -> 检查更新`，勾选 GeoFiles，点击 `检查更新`。
+- 文件名已匹配预置的 `绕过大陆(Whitelist)` 规则集，可以直接启用。
+- 单独配置请参考 [sing-box 配置文档](https://sing-box.sagernet.org/zh/configuration/)。
+  ```json
+  {
+    "route": {
+      "rules": [
+        {
+          "outbound": "direct",
+          "rule_set": [
+            "geosite-private",
+            "geosite-cn",
+            "geosite-apple"
+          ]
+        }
+      ],
+      "rule_set": [
+        {
+          "tag": "geosite-private",
+          "type": "local",
+          "format": "binary",
+          "path": "C:\\srss\\geosite-private.srs"
+        },
+        {
+          "tag": "geosite-cn",
+          "type": "local",
+          "format": "binary",
+          "path": "C:\\srss\\geosite-cn.srs"
+        },
+        {
+          "tag": "geosite-apple",
+          "type": "local",
+          "format": "binary",
+          "path": "C:\\srss\\geosite-apple.srs"
+        }
+      ]
+    }
+  }
+  ```
+
+## 验证配置
+
+ - 在 v2rayN 里 `启用 Tun`。
+ - 访问 [https://ip111.cn/](https://ip111.cn/)。
+ - `从国内测试、从国外测试` 应该都是你的本地 IP，`从谷歌测试` 应该是你的代理 IP。
+
+## 常见问题
+
+- **如何恢复 v2rayN 默认的 sing-box ruleset？**
+
+  清空 `设置 -> 参数设置 -> v2rayN 设置  -> sing-box ruleset 文件来源` 后，再次更新 GeoFiles 即可。
+
 ## 问题反馈
 
 任何问题欢迎在 [Issues](https://github.com/OriginVorfeed/singbox-china-list/issues) 中反馈。
