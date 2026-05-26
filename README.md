@@ -49,10 +49,10 @@
 - 推荐配合 [v2rayN](https://github.com/2dust/v2rayn) 使用，填写 `设置 -> 参数设置 -> v2rayN 设置  -> sing-box ruleset 文件来源`，任选其一：
 
   ```
-  # 代理
+  # 需要代理
   https://raw.githubusercontent.com/OriginVorfeed/singbox-china-list/master/{1}.srs
 
-  # 直连
+  # 可以直连，但最好别用。试了好几次，v2rayN 下载到的文件大小不对，但浏览器下载是好的，不知道什么原因。
   https://cdn.jsdelivr.net/gh/OriginVorfeed/singbox-china-list@master/{1}.srs
   ```
 
