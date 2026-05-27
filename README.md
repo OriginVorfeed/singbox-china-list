@@ -59,7 +59,9 @@
 - `帮助 -> 检查更新`，勾选 GeoFiles，点击 `检查更新`。
 - 文件名已匹配预置的 `绕过大陆(Whitelist)` 规则集，可以直接 `设为活动规则`。
 
-> 单独配置请参考 [sing-box 官方文档](https://sing-box.sagernet.org/zh/configuration/route/)，合并以下内容：
+> 单独配置时，在 `rule-set` 里指定 `path`，即可和其他 sing-box srs 文件配合使用。
+>
+> 请参考 [sing-box 官方文档](https://sing-box.sagernet.org/zh/configuration/route/)，合并以下内容：
 
 ```json
 {
@@ -68,9 +70,9 @@
       {
         "outbound": "direct",
         "rule_set": [
-          "geosite-private",
-          "geosite-cn",
-          "geosite-apple"
+          "singbox-china-list-private",
+          "singbox-china-list-cn",
+          "singbox-china-list-apple"
         ]
       },
       {
@@ -82,19 +84,19 @@
     ],
     "rule_set": [
       {
-        "tag": "geosite-private",
+        "tag": "singbox-china-list-private",
         "type": "local",
         "format": "binary",
         "path": "C:\\srss\\geosite-private.srs"
       },
       {
-        "tag": "geosite-cn",
+        "tag": "singbox-china-list-cn",
         "type": "local",
         "format": "binary",
         "path": "C:\\srss\\geosite-cn.srs"
       },
       {
-        "tag": "geosite-apple",
+        "tag": "singbox-china-list-apple",
         "type": "local",
         "format": "binary",
         "path": "C:\\srss\\geosite-apple.srs"
