@@ -52,8 +52,8 @@
   # 需要代理
   https://raw.githubusercontent.com/OriginVorfeed/singbox-china-list/refs/heads/main/{1}.srs
 
-  # 可以直连，但最好别用。试了好几次，v2rayN 下载到的文件大小不对。
-  # 但浏览器下载是好的，我也不知道为什么跌丝袜。
+  # 可以直连，但最好别用。
+  # 试了好几次，v2rayN 下载到的文件大小不对，但浏览器下载是好的，我也不知道为什么跌丝袜。
   https://cdn.jsdelivr.net/gh/OriginVorfeed/singbox-china-list@main/{1}.srs
   ```
 
