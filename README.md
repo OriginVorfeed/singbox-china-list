@@ -46,7 +46,7 @@
 
 ## 使用方法
 
-- 推荐配合 [v2rayN](https://github.com/2dust/v2rayn) 使用，填写 `设置 -> 参数设置 -> v2rayN 设置  -> sing-box ruleset 文件来源`，任选其一：
+- 推荐配合 [v2rayN](https://github.com/2dust/v2rayn) 使用，填写 `设置 -> 参数设置 -> v2rayN 设置 -> sing-box ruleset 文件来源`，任选其一：
 
   ```
   # 需要代理
@@ -123,17 +123,29 @@
 
 - **如何恢复 v2rayN 默认的 sing-box ruleset？**
 
-  清空 `设置 -> 参数设置 -> v2rayN 设置  -> sing-box ruleset 文件来源` 后，再次更新 GeoFiles 即可。
+  清空 `设置 -> 参数设置 -> v2rayN 设置 -> sing-box ruleset 文件来源` 后，再次更新 GeoFiles 即可。
 
-- **能不能不覆盖 v2rayN 预置的规则文件？**
+- **可以不覆盖 v2rayN 预置的规则文件吗？**
 
-  目前做不到。v2rayN 生成 sing-box 配置的逻辑是，转换用户填写的 Xray 规则。
+  可以，但不推荐，无论如何都会造成 sing-box、Xray 分流行为不一致。如果你不介意这点，配置方法如下：
 
-  但对于规则文件，目前不支持 `ext:xray-china-list.dat:cn` 这样的写法，只能以 `geosite:` 开头。
+  - 新建一个 json 文件，比如你想指定 `geosite:cn` 对应的 srs 文件，就填写：
 
-  就算在 `设置 -> 路由设置 -> 规则集设置 -> 自定义 sing-box rule-set` 里单独配置，也会造成和 Xray 的分流行为不一致。
+    ```json
+    [
+      {
+        "tag": "geosite-cn",
+        "type": "local",
+        "format": "binary",
+        "path": "C:\\srss\\custom-geosite-cn.srs"
+      }
+    ]
+    ```
 
-  总是就是特别难搞跌丝袜。
+  - 在 `设置 -> 路由设置 -> 规则集设置 -> 自定义 sing-box rule-set` 里，选择这个 json 文件。
+  - 应用设置后，v2rayN 生成的 sing-box 配置文件里，`ruleset -> "tag": "geosite-cn"` 的内容就会被 json 替换。
+
+  但此时，Xray 依然使用预置的 geosite.dat，导致两者分流行为不一致。
 
 ## 问题反馈
 
