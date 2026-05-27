@@ -52,7 +52,8 @@
   # 需要代理
   https://raw.githubusercontent.com/OriginVorfeed/singbox-china-list/refs/heads/main/{1}.srs
 
-  # 可以直连，但最好别用。试了好几次，v2rayN 下载到的文件大小不对，但浏览器下载是好的，不知道什么原因。
+  # 可以直连，但最好别用。试了好几次，v2rayN 下载到的文件大小不对。
+  # 但浏览器下载是好的，我也不知道为什么跌丝袜。
   https://cdn.jsdelivr.net/gh/OriginVorfeed/singbox-china-list@main/{1}.srs
   ```
 
@@ -123,6 +124,16 @@
 - **如何恢复 v2rayN 默认的 sing-box ruleset？**
 
   清空 `设置 -> 参数设置 -> v2rayN 设置  -> sing-box ruleset 文件来源` 后，再次更新 GeoFiles 即可。
+
+- **能不能不覆盖 v2rayN 预置的规则文件？**
+
+  目前做不到。v2rayN 生成 sing-box 配置的逻辑是，转换用户填写的 Xray 规则。
+
+  但对于规则文件，目前不支持 `ext:xray-china-list.dat:cn` 这样的写法，只能以 `geosite:` 开头。
+
+  就算在 `设置 -> 路由设置 -> 规则集设置 -> 自定义 sing-box rule-set` 里单独配置，也会造成和 Xray 的分流行为不一致。
+
+  总是就是特别难搞跌丝袜。
 
 ## 问题反馈
 
