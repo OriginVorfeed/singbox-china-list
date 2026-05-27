@@ -144,6 +144,7 @@
 
   - `设置 -> 路由设置 -> 规则集设置 -> 自定义 sing-box rule-set`，选择这个 json 文件。
   - 应用设置后，v2rayN 生成的 sing-box 配置文件里，`rule_set -> tag: geosite-cn` 的内容就会被 json 替换。
+
     > 但此时，Xray 依然使用预置的 geosite.dat，导致两者分流行为不一致。
 
 ## 问题反馈
