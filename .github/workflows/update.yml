@@ -36,7 +36,7 @@ jobs:
           mkdir -p data
 
           # 安装 sing-box
-          curl -fsSL https://sing-box.app/install.sh | sh -s -- --version 1.12.17
+          curl -fsSL https://sing-box.app/install.sh | sh -s -- --version 1.13.11
 
           for file in "${files[@]}"; do
             # 将文件名转换为符合标准的 geosite 标签名 (Tag)
